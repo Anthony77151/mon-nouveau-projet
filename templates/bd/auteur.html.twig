@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste auteurs - Le Libraire
+{% endblock %}
+
+{% block body %}
+	<style>
+    body{
+        background-color: #1E2125;
+    }
+	h1{
+		padding-top: 50px;
+		background: -webkit-linear-gradient(rgba(225, 0, 255),rgba(127, 0, 255));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+		text-align: center;
+	}
+    a{
+        color: #fff;
+    }
+    .example-wrapper{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: linear-gradient(to right, rgba(225, 0, 255, 0.5), rgba(127, 0, 255, 0.5));
+        border-radius: 20px;
+        background-color: #1E2125;
+    }
+    .container{
+        padding-top: 20px;
+        width: 800px;
+    }
+	</style>
+	<h1>{{ liste }}</h1>
+    <div class="container">
+        <div class="example-wrapper">
+        {% for auteur in auteurs %}
+        <h5 class="pt-3"><a href="{{ path('show', {id :auteur.id}) }}">{{ auteur.auteur }}</a></h5>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

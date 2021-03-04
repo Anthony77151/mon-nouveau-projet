@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les ouvrages - Le Libraire
+{% endblock %}
+
+{% block body %}
+	<style>
+    body{
+        background-color: #1E2125;
+    }
+    p{
+        color: #fff;
+    }
+    h2{
+        text-align: center;
+        background: -webkit-linear-gradient(rgba(225, 0, 255),rgba(127, 0, 255));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+	</style>
+	
+    <article>
+        <h2 class="pt-5">{{ auteur.auteur }}</h2>
+            <div class="pb-3 text-center">Titre de la BD </div>
+                <div class="content">
+                <div class="d-flex justify-content-around">
+                    <img src="https://place-hold.it/300x500" alt="">
+                    <img src="https://place-hold.it/300x500" alt="">
+                    <img src="https://place-hold.it/300x500" alt="">
+                </div>
+                    <p class="pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sequi harum cumque accusamus dignissimos odit, saepe voluptatibus eum ratione et pariatur incidunt quas non quis aperiam ea, laborum odio recusandae!
+
+                    </p>
+                    <hr>
+                </div>
+           
+    </article>
+
+{% endblock %}
+
+

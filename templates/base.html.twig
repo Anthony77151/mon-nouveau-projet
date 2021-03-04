@@ -1,0 +1,75 @@
+<style>
+.iconNav{
+  width: 70px;
+  height: auto;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+#buttonNav{
+  background: linear-gradient(to right, rgba(225, 0, 255, 0.5), rgba(127, 0, 255, 0.5)); 
+  border-radius: 20px;
+}
+@media screen and (max-width: 991px){
+  #formNav{
+    display: none;
+  }
+}
+</style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/lux/bootstrap.min.css" integrity="sha512-WuuAGQTSGG3228iS6X391fHFzL6x65yWGGLilC1XYcXY6gT/6EHofWqsjLBsunqLtq7pDzcYOjW21Nn9y9Q75g==" crossorigin="anonymous" />
+
+        {% endblock %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img class="iconNav" src="{{ asset('images/icon_livre.png') }}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" _msthidden="A" _msthiddenattr="1375998" _mstaria-label="320099">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path("home") }}"><font _mstmutation="1" _msthash="574236" _msttexthash="92079">Accueil </font><span class="sr-only" _msthash="870259" _msttexthash="98592">(actuel)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path("bd")}}" _msthash="574613" _msttexthash="329004">BD</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path("auteur")}}" _msthash="574613" _msttexthash="329004">auteurs</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" _msthash="575744" _msttexthash="171808">Déroulante</a>
+        <div class="dropdown-menu" _msthidden="4">
+          <a class="dropdown-item" href="#" _msthash="812344" _msttexthash="76466" _msthidden="1">Action</a>
+          <a class="dropdown-item" href="#" _msthash="812851" _msttexthash="232752" _msthidden="1">Another action</a>
+          <a class="dropdown-item" href="#" _msthash="813358" _msttexthash="349791" _msthidden="1">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" _msthash="814372" _msttexthash="230529" _msthidden="1">Separated link</a>
+        </div>
+      </li>
+    </ul>
+    <form id="formNav" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="rechercher" _mstplaceholder="157274">
+      <button id="buttonNav" class="btn btn-secondary my-2 my-sm-0" type="submit" _msthash="728481" _msttexthash="157274">rechercher</button>
+    </form>
+  </div>
+</nav>
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    <body>
+      <div class="container">  {% block body %}{% endblock %}</div>
+    </body>
+</html>
