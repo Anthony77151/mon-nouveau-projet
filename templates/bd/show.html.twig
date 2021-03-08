@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+{% for produit in produits %}
 	<style>
     body{
         background-color: #1E2125;
@@ -21,22 +22,22 @@
 	</style>
 	
     <article>
-        <h2 class="pt-5">{{ auteur.auteur }}</h2>
-            <div class="pb-3 text-center">Titre de la BD </div>
+        <h2 class="pt-5">{{ produit.titre }}</h2>
+            <div class="pb-3 text-center">{{ produit.heros }} - {{ produit.auteur }} </div>
                 <div class="content">
-                <div class="d-flex justify-content-around">
-                    <img src="https://place-hold.it/300x500" alt="">
-                    <img src="https://place-hold.it/300x500" alt="">
-                    <img src="https://place-hold.it/300x500" alt="">
+                <div class="d-flex justify-content-center">
+                    {% if produit.refbd in couvertures %}
+                    <img class="thumbnail" src="{{ asset('images/couverture/') }}{{ produit.refbd }}{{ '.jpg' }}" alt="{{ produit.refbd }}">
+                    {% else %}
+                    <img class="thumbnail" src="{{ asset('images/couverture/defaut.jpg') }}" alt="aucune couverture">
+                    {% endif %}
                 </div>
-                    <p class="pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio sequi harum cumque accusamus dignissimos odit, saepe voluptatibus eum ratione et pariatur incidunt quas non quis aperiam ea, laborum odio recusandae!
-
-                    </p>
+                    <p class="pt-3">{{ produit.resume }}</p>
                     <hr>
                 </div>
            
     </article>
-
+{% endfor %}
 {% endblock %}
 
 

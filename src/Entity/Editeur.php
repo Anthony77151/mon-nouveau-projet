@@ -38,4 +38,14 @@ class Editeur
 
         return $this;
     }
+
+    /**
+     * Generates the magic method
+     */
+    function __toString()
+    {
+        // to show the name of the Auteur in the select
+        return $this->editeur;
+        // to show the id of the Auteur in the select
+    }
 }

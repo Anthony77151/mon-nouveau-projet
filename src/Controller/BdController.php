@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Auteur;
+use App\Repository\ProduitRepository;
 use App\Repository\AuteurRepository;
 
 class BdController extends AbstractController
@@ -46,11 +46,24 @@ class BdController extends AbstractController
     /**
      * @Route("/show/{id}", name="show")
      */
-    function show($id, AuteurRepository $repo){
+    function show($id, ProduitRepository $repo){
 
-        $auteur = $repo->find($id);
+        $produits = $repo->findby(array("auteur" => $id));
+        //$couvertures = ['BD000001','BD000007','BD000013'];
+        $couvertures = array();
+        $dir = "images/couverture/";
+        if( $dossier = opendir($dir)){
+            while(($item = readdir($dossier)) !== false){
+                $pos_point = strpos($item, '.');
+                $item = substr($item, 0, $pos_point);
+                $couvertures[] = strtoupper($item);
+            }
+            closedir($dossier);
+        }
+
         return $this->render('bd/show.html.twig', [
-            'auteur'=> $auteur
+            'produits'=> $produits,
+            'couvertures' => $couvertures
         ]);
     }
 }
